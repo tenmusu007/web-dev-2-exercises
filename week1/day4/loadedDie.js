@@ -10,11 +10,18 @@ However, instead of a random die, we want to create a cheat die that would let u
 */
 function makeLoadedDie() {
   const list = [5, 4, 6, 1, 6, 4, 2, 3, 3, 5];
-  /* your code here */
+  let i =-1
+  // console.log(i)
+
 
   return function () {
-    /* your code here */
-  };
+    if(i >= list.length -1){
+      i = 0
+    }else{
+      i++
+    }
+    return list[i] 
+  }
 }
 
 const rollLoadedDie = makeLoadedDie();
@@ -22,3 +29,13 @@ const rollLoadedDie = makeLoadedDie();
 console.log(rollLoadedDie()); // 5
 console.log(rollLoadedDie()); // 4
 console.log(rollLoadedDie()); // 6
+console.log(rollLoadedDie()); // 5
+console.log(rollLoadedDie()); // 4
+console.log(rollLoadedDie()); // 6
+console.log(rollLoadedDie()); // 5
+console.log(rollLoadedDie()); // 4
+console.log(rollLoadedDie()); // 6
+console.log(rollLoadedDie()); // 6
+console.log(rollLoadedDie()); // 6
+console.log(rollLoadedDie()); // 6
+
