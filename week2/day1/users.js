@@ -229,7 +229,7 @@ const newUser = [
 
 const createUser = (userData) => {};
 
-console.log(createUser(newUser));
+usersData = [...createUser(newUser)];
 
 // Create a function to update user by id and print updated user
 
