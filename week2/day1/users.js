@@ -160,7 +160,7 @@ const usersData = [
     website: 'conrad.com',
   },
   {
-    id: 9,
+    id: 10,
     name: 'Clementina DuBuque',
     username: 'Moriah.Stanton',
     email: 'Rey.Padberg@karina.biz',
@@ -181,15 +181,35 @@ const usersData = [
 // Create a function to print user full address
 // suite - street, city, zipcode
 
-const printUserAddress = (user, users) => {};
+const printUserAddress = (user) => {
 
-console.log(printUserAddress(users[1]));
-console.log(printUserAddress(users[4]));
-console.log(printUserAddress(users[6]));
+  return `street : ${user.address.street} City: ${user.address.city} Zipcode: ${user.address.zipcode}`
+}
+console.log(printUserAddress(usersData[1]));
+console.log(printUserAddress(usersData[4]));
+console.log(printUserAddress(usersData[6]));
 
 // Create a function to separate first name and last name for all users
 
-const setFirstLastName = (users) => {};
+const setFirstLastName = (users) => {
+  
+  let firstName =""
+  const test = users.map((item)=>{
+    return item.name.split(" ")
+  })
+  console.log(test)
+  test.forEach(element => {
+    firstName += " First name:" + " " + element.join(" Last name: ")
+  });
+  // for(let i in test){
+  //   console.log(test[i])
+  // }
+  return firstName
+  // console.log(test2)
+  // console.log(firstName)  // console.log(test)
+  // console.log(firstName)
+  // return test2
+};
 
 console.log(setFirstLastName(usersData));
 
@@ -227,13 +247,38 @@ const newUser = [
   ['website', 'conrad.com'],
 ];
 
-const createUser = (userData) => {};
+const createUser = (userData) => {
+  
+  let obj = Object.fromEntries(userData)
+  console.log(obj)
+  usersData.push(obj)
+  console.log(usersData)
+  };
+
+  
 
 console.log(createUser(newUser));
 
 // Create a function to update user by id and print updated user
 
-const updateUser = (userId, updateInfo) => {};
+const updateUser = (userId, updateInfo) => {
+  let test
+  usersData.forEach(item =>{
+    if(item.id === userId && updateInfo[0] === "phone"){
+      item['phone'] = updateInfo[1]
+      // console.log("working")
+      test = item
+      // return item
+    }else if(item.id === userId && updateInfo[0] === "email"){
+      item['email'] = updateInfo[1]
+      test = item
+      // return item
+    }
+    // test = item
+  })
+  return test
+};
 
 console.log(updateUser(1, ['phone', '1-007-637-3180']));
 console.log(updateUser(3, ['email', 'clementine@yesenia.net']));
+console.log(updateUser(2, ['email', 'clementine@yesenia.net']));
