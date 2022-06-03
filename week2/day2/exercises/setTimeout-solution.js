@@ -17,7 +17,7 @@ for (let i in strArray) {
     }, 1000 * i);
   } else {
     setTimeout(() => {
-      process.stdout.write(`${strArray[i]} `);
+      process.stdout.write(`${strArray[i]} \n`);
     }, 1000 * i);
   }
 }

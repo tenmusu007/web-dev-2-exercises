@@ -13,7 +13,7 @@ returnPromise('one', 1000)
   .catch((err) => {
     // throw err;
     console.log('different err:', err);
-    return 42;
+    return returnRejectedPromise(42, 1000);
   })
   .then((data) => {
     console.log('justaftercatch', data);

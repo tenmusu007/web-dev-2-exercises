@@ -17,11 +17,6 @@ rlp
     answers.push(answer);
     return rlp.questionAsync("What's your favourite activity? ");
   })
-
-  .then((answer) => {
-    answers.push(answer);
-    return rlp.questionAsync('What do you listen to while doing that? ');
-  })
   .then((answer) => {
     answers.push(answer);
     return rlp.questionAsync('Which meal is your favourite? ');

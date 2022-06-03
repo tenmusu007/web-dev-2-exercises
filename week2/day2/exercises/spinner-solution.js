@@ -27,7 +27,7 @@ const interval = setInterval(() => {
   i++;
 }, 200);
 
-// setTimeout(() => {
-//   clearInterval(interval);
-//   process.stdout.write('\n');
-// }, 2400);
+setTimeout(() => {
+  clearInterval(interval);
+  process.stdout.write('\n');
+}, 2400);
