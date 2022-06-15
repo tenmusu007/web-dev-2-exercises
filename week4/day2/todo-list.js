@@ -19,6 +19,24 @@ function newTask(title, txt) {
   // taskTitles.push(task)
   return task
 }
+function newTask(title, description) {
+  const task = {
+    title: title,
+    description: description,
+    complete: false,
+    completeTask: function () {
+      task.complete = true;
+    },
+    logTaskState: function () {
+      console.log(
+        `${this.title} has${this.complete ? ' ' : ' not '}been completed`
+      );
+    },
+  };
+  return task;
+  // taskTitles.push(title);
+  // taskComplete.push(false);
+}
 // const task0 = newTask('Clean Cat Litter')
 
 
@@ -29,6 +47,16 @@ function newTask(title, txt) {
 // function logTaskState(taskIndex) {
 //   const title = taskIndex.task;
 //   const complete = taskComplete[taskIndex];
+
+// // Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
+// function completeTask(task) {
+//   task.complete = true;
+// }
+
+// // Print the state of a task to the console in a nice readable way
+// function logTaskState(task) {
+//   const title = task.title;
+//   const complete = task.complete;
 //   console.log(`${title} has${complete ? ' ' : ' not '}been completed`);
 // }
 
