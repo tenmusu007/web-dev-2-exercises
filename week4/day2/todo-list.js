@@ -4,28 +4,49 @@ const taskComplete = [];
 
 // Create a new task by adding to the arrays
 // A new task will be created as incomplete
-function newTask(title) {
-  taskTitles.push(title);
-  taskComplete.push(false);
+function newTask(title, txt) {
+  const task = {
+    task: title,
+    discription :txt,
+    comp: false,
+    markCompleted :function() {
+      task.comp = true
+    },
+    logState :function() {
+      console.log(`${this.task} has${this.comp ? ' ' : ' not '}been completed`);
+    },
+  };
+  // taskTitles.push(task)
+  return task
 }
+// const task0 = newTask('Clean Cat Litter')
+
 
 // Mark a task as complete by setting the task's status in the `taskComplete` array to `true`
-function completeTask(taskIndex) {
-  taskComplete[taskIndex] = true;
-}
+
 
 // Print the state of a task to the console in a nice readable way
-function logTaskState(taskIndex) {
-  const title = taskTitles[taskIndex];
-  const complete = taskComplete[taskIndex];
-  console.log(`${title} has${complete ? ' ' : ' not '}been completed`);
-}
+// function logTaskState(taskIndex) {
+//   const title = taskIndex.task;
+//   const complete = taskComplete[taskIndex];
+//   console.log(`${title} has${complete ? ' ' : ' not '}been completed`);
+// }
 
 // DRIVER CODE BELOW
 
-newTask('Clean Cat Litter'); // task 0
-newTask('Do Laundry'); // task 1
+const task1 = newTask('Clean Cat Litter', 'Take all the 💩 out of the litter box'); // task 0
+const task2 = newTask('Do Laundry','😨' ); // task 1
+const tasks = [task1, task2]
 
-logTaskState(0); // Clean Cat Litter has not been completed
-completeTask(0);
-logTaskState(0); // Clean Cat Litter has been completed
+// console.log(taskTitles);
+// console.log(taskComplete);
+
+// logTaskState(task1); // Clean Cat Litter has not been completed
+// completeTask(task1);
+// logTaskState(task1); // Clean Cat Litter has been completed
+
+
+task1.logState(); // Clean Cat Litter has not been completed
+task1.markCompleted();
+task1.logState(); // Clean Cat Litter has been completed
+console.log(tasks);

@@ -6,10 +6,17 @@
  * @param {*} transformer 
  * @returns {Promise}
  */
-function mapPromise(promise, transformer){
+function mapPromise(promise, transformer) {
   return new Promise((resolve, reject) => {
     /* IMPLEMENT ME!! */
-  });
+    promise
+      .then((data)=>{
+        resolve(transformer(data))
+      })
+      .catch((error)=>{
+        reject(error)
+      })
+    })
 }
 
 /**
@@ -19,9 +26,18 @@ function mapPromise(promise, transformer){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromise(numberPromise){
+function squarePromise(numberPromise) {
+  // console.log(numberPromise)
   return numberPromise
-    .then(/* IMPLEMENT ME! */);
+  .then((data)=>{
+    // console.log(typeof(data));
+    if(isNaN(data)){
+      // console.log(data)
+      throw `Cannot convert '${data}' to a number!`
+    }else{
+      return data*data
+    }
+  })
 }
 
 /**
@@ -30,9 +46,20 @@ function squarePromise(numberPromise){
  * @param {Promise<number | string>} numberPromise 
  * @returns {Promise<number>}
  */
-function squarePromiseOrZero(promise){
+function squarePromiseOrZero(promise) {
   return squarePromise(promise)
-    .catch(/* IMPLEMENT ME! */);
+    .catch((data)=>{
+      if(!isNaN(data) < 0){
+        // console.log(data)
+        return data
+        // reject(data)
+        // throw new Error();
+        // reject(data)
+      }else{
+        // console.log("hi")
+        return 0
+      }
+    });
 }
 
 /**
@@ -41,9 +68,16 @@ function squarePromiseOrZero(promise){
  * @param {Promise} promise 
  * @returns {Promise}
  */
-function switcheroo(promise){
-  return promise.then(/* IMPLEMENT ME */);
+function switcheroo(promise) {
+  return promise.then(
+    ((data)=>{
+      throw data
+    }),
+    (error)=>{
+      return error
+    })
 }
+
 
 /**
  * @callback consumer

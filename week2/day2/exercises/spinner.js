@@ -51,3 +51,29 @@ You can use a regular loop or setInterval to make it work.
 Bonus: You can try to remove all these repetitive setTimeouts to and make a shorter and cleaner code.
 
 */
+// process.stdout.write('hello from spinner1.js... \rheyyy\n');
+let count = 0
+const test = setInterval(() => {
+  // const allsetTimeout = setTimeout(() => {
+    setTimeout(() => {
+      process.stdout.write('\r|   ');
+    }, 100);
+
+    setTimeout(() => {
+      process.stdout.write('\r/   ');
+    }, 300);
+
+    setTimeout(() => {
+      process.stdout.write('\r-   ');
+    }, 500);
+
+    setTimeout(() => {
+      // Need to escape the backslash since it's a special character.
+      process.stdout.write('\r\\   ');
+    }, 700);
+  // }, 1000);
+  count++
+  if (count > 2) {
+    clearInterval(test)
+  }
+}, 800);

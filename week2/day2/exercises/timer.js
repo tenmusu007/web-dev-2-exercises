@@ -28,3 +28,29 @@ An input is a negative number: Ignore/skip any numbers that are negative. We can
 An input is not a number: Ignore/skip these as well, instead of attempting to call setTimeout with a non-number.
 
 */
+// console.log(fullSoretedNumber)
+const stop = setInterval(() => {
+    let count = 0
+    const sortedNumber = process.argv.slice(2).sort((a,b)=>{
+        return Number(a) < Number(b)? -1 : 1
+    })
+    console.log(sortedNumber)
+    const fullSoretedNumber = sortedNumber.filter((item)=>{
+        if(Number(item) > 0){
+            return  Number(item)
+        }
+    })
+    console.log(fullSoretedNumber)
+    for (let i = 0; i < fullSoretedNumber.length; i++) {
+        setTimeout(() => {
+                    console.log(fullSoretedNumber[i]);
+                    console.log("beep")
+                    console.log(1000 * fullSoretedNumber[i])
+                    count++
+                }, 1000 * fullSoretedNumber[i]);
+            }
+            // console.log(1000 * fullSoretedNumber[i])
+        if (count < fullSoretedNumber.length) {
+            clearInterval(stop)
+        }
+}, 1000);

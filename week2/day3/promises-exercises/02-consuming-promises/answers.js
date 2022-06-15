@@ -8,6 +8,15 @@
  */
 function waitForPromise(promise, action){
   /* IMPLEMENT ME */
+  // setTimeout(() => {
+  //   action() 
+  // }, 1000);
+  // return new Promise((resolve)=>{
+  //   resolve(promise)
+  // })
+  promise.then(()=>{
+      action()
+  })
 }
 /**
  * 
@@ -19,6 +28,20 @@ function waitForPromise(promise, action){
  */
 function consumePromise(promise, consumer, handler){
   /* IMPLEMENT ME! */
+  console.log(promise)
+  // new Promise ((resolve, reject)=>{
+  //     resolve(promise)
+  //   }).then((promise)=>{
+  //     consumer(promise)
+  //   }).catch((promise)=>{
+  //     handler(promise)
+  //   })
+  promise 
+    .then((data)=>{
+      consumer(data)
+    }).catch((data)=>{
+      handler(data)
+    })
 }
 
 /**
