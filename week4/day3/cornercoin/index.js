@@ -53,7 +53,7 @@ class Withdrawal extends Transaction{
   }
 }
 class Deposit extends Transaction {
-  constructor(account, amount, ){
+  constructor(account, amount,){
     super(account,amount,)
   }
 get value(){
